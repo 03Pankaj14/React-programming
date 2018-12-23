@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 
+import Count from "./count.jsx";
+
 class Counter extends Component {
+  state = {
+    counters: [
+      { id: 0, value: 4 },
+      { id: 1, value: 0 },
+      { id: 2, value: 0 },
+      { id: 3, value: 0 }
+    ]
+  };
+
   render() {
     return (
-      <React.Fragment>
-        <h1> Hello World </h1>
-        <button>increment</button>
-      </React.Fragment>
+      <div>
+        {this.state.counters.map(counter => (
+          <Count key={counter.id} value={counter.value} selected />
+        ))}
+      </div>
     );
   }
 }
