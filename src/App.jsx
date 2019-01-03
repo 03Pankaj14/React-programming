@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Counter from "./components/counter.jsx";
 
+/*Constructor then render then componentDidMount*/
+
 class App extends Component {
   state = {
     counters: [
@@ -19,6 +21,11 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleIncrement = this.handleIncrement.bind(this);
+  }
+
+  componentDidMount() {
+    //ideal for ajax calls
+    console.log("App Mounted");
   }
 
   handleDelete(counterID) {

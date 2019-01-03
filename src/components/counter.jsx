@@ -4,19 +4,18 @@ import Count from "./count.jsx";
 
 class Counter extends Component {
   render() {
+    //object restructuring
+    const { onReset, onDelete, onIncrement, counters } = this.props;
     return (
       <div>
-        <button
-          className="btn btn-primary btn-sm m-5"
-          onClick={this.props.onReset}
-        >
+        <button className="btn btn-primary btn-sm m-5" onClick={onReset}>
           Reset
         </button>
-        {this.props.counters.map(counter => (
+        {counters.map(counter => (
           <Count
             key={counter.id}
-            onDelete={this.props.onDelete}
-            onIncrement={this.props.onIncrement}
+            onDelete={onDelete}
+            onIncrement={onIncrement}
             counter={counter}
           />
         ))}
@@ -26,3 +25,12 @@ class Counter extends Component {
 }
 
 export default Counter;
+
+/* lifecycle hooks of component mostly used only in class components
+cannot use lifecycle hooks in stateless components
+1) mount ->constructor,render,componentDidMount
+/*Constructor(only once) then render then componentDidMount
+
+2)Update-> render,componentDidUpdate
+3)unmounting->componentWillUnmount
+*/
